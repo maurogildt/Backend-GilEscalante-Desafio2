@@ -38,7 +38,7 @@ export default class ProductManager {
     updateProduct = async(id,updateField) =>{
         try {
             const products = await this.getProducts()
-            const index = products.findIndex((products)=> products.id === id)
+            const index = products.findIndex(products=> products.id === id)
             if(index === -1)    return console.log('Product Not Found')
             const productUpdate = Object.assign(await this.getProductById(id), updateField)
             products[index] = productUpdate
@@ -52,7 +52,7 @@ export default class ProductManager {
     deleteProduct = async(id)=>{
         try {
             const products = await this.getProducts()
-            const index = products.findIndex((products)=> products.id === id)
+            const index = products.findIndex(products=> products.id === id)
             if(index === -1)    return console.log('Product Not Found')
             products.splice(index,1)
             await fs.promises.writeFile(this.path, JSON.stringify(products,null,'\t'))

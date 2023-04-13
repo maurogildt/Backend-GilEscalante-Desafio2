@@ -18,10 +18,10 @@ const context = async () => {
 
     console.log(await productManager.getProductById(1))
 
-    console.log(await productManager.updateProduct(1,{price: 500, stock: 1}))
+    await productManager.updateProduct(1,{price: 500, stock: 1})
     console.log(await productManager.getProducts())
 
-    console.log(await productManager.deleteProduct(1))
+    await productManager.deleteProduct(1)
     console.log(await productManager.getProducts())
 }
 
